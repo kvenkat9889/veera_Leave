@@ -1056,6 +1056,7 @@
     }
 
     function isWithinSixMonths(date) {
+
       const today = new Date();
       const sixMonthsFromNow = new Date();
       sixMonthsFromNow.setMonth(today.getMonth() + 6);
@@ -1064,7 +1065,7 @@
 
     async function fetchLeaveBalances(empId) {
       try {
-        const response = await fetch(`http://localhost:3000/api/leave-balances/${empId}`, {
+        const response = await fetch(`http://98.80.67.100:3016/api/leave-balances/${empId}`, {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' }
         });
@@ -1081,7 +1082,7 @@
 
     async function fetchLeaveHistory(empId) {
       try {
-        const response = await fetch(`http://localhost:3000/api/leave-requests/${empId}`, {
+        const response = await fetch(`http://98.80.67.100:3016/api/leave-requests/${empId}`, {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' }
         });
@@ -1098,7 +1099,7 @@
 
     async function submitLeaveRequest(request) {
       try {
-        const response = await fetch('http://localhost:3000/api/leave-requests', {
+        const response = await fetch('http://98.80.67.100:3016/api/leave-requests', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(request)
