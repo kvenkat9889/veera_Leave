@@ -12,6 +12,6 @@ RUN npm install
 COPY . .
 
 # Expose port and start server
-EXPOSE 3016
+EXPOSE 3649
 CMD ["node", "Server.js"]
 
