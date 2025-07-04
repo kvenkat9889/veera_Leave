@@ -14,18 +14,24 @@ services:
       - PGPASSWORD=admin123
       - PGDATABASE=Leave
       - PGPORT=5432
+    networks:
+      - veera_net
 
   frontend:
     build: ./Frontend
     container_name: veera_frontend1
     ports:
-      - "7618:80"
+      - "7619:80"
+    networks:
+      - veera_net
 
   hr:
     build: ./HR
     container_name: veera_hr1
     ports:
-      - "7619:80"
+      - "7620:80"
+    networks:
+      - veera_net
 
   postgres:
     image: postgres:13
@@ -39,6 +45,8 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - veera_net
 
 volumes:
   pgdata:
@@ -48,4 +56,5 @@ networks:
     driver: bridge
     ipam:
       config:
-        - subnet: 172.31.0.0/16
+        - subnet: 172.80.0.0/16
+
